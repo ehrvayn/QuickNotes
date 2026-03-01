@@ -13,13 +13,17 @@ function Register() {
 
   const [message, setMessage] = useState(null);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const register = async () => {
+    if (isLoading) return;
     if (confirmPassword !== password) {
       setIsSuccess(false);
       setMessage("Passwords do not match!");
       return;
     }
+    
+    setIsLoading(true);
     try {
       let response = await fetch("https://quicknotesbackend-e5oz.onrender.com/users/register", {
         method: "POST",
@@ -40,6 +44,8 @@ function Register() {
     } catch (error) {
       setIsSuccess(false);
       setMessage("Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -55,7 +61,7 @@ function Register() {
     return () => {
       window.removeEventListener("keydown", handleGlobalKeyDown);
     };
-  }, [firstname, lastname, username, password, confirmPassword]); 
+  }, [firstname, lastname, username, password, confirmPassword, isLoading]); 
 
   return (
     <>
@@ -64,10 +70,10 @@ function Register() {
           {message}
         </p>
       )}
-      <button className="submit-btn" onClick={register}>
-        Submit
+      <button className="submit-btn" onClick={register} disabled={isLoading}>
+        {isLoading ? "Submitting..." : "Submit"}
       </button>
-      <button className="back-btn" onClick={() => setIsRegistering(false)}>
+      <button className="back-btn" onClick={() => setIsRegistering(false)} disabled={isLoading}>
         Back
       </button>
     </>

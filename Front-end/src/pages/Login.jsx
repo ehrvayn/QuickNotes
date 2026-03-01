@@ -12,6 +12,7 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState(null);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const loginBtnRef = useRef(null);
 
   const {
@@ -35,7 +36,6 @@ function Login() {
     }
   }, [isRegistering]);
 
-  // Handle Enter key for non-form elements
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !isRegistering) {
       login();
@@ -43,9 +43,11 @@ function Login() {
   };
 
   const login = async () => {
+    if (isLoading) return;
     if (!username) { setIsSuccess(false); setMessage("Username is required!"); return; }
     if (!password) { setIsSuccess(false); setMessage("Password is required!"); return; }
 
+    setIsLoading(true);
     try {
       let response = await fetch("https://quicknotesbackend-e5oz.onrender.com/users/login", {
         method: "POST",
@@ -67,6 +69,8 @@ function Login() {
     } catch (error) {
       setIsSuccess(false);
       setMessage("Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -152,8 +156,8 @@ function Login() {
           <div className="btn-wrapper">
             {!isRegistering ? (
               <>
-                <button className="login-btn" onClick={login} ref={loginBtnRef}>
-                  Log-in
+                <button className="login-btn" onClick={login} ref={loginBtnRef} disabled={isLoading}>
+                  {isLoading ? "Signing in..." : "Log-in"}
                 </button>
                 <p className="switch-text">
                   New here?{" "}
