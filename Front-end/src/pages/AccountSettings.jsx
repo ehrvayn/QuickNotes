@@ -176,12 +176,14 @@ function AccountSettings() {
       setFullnameMsg("Last name can't be blank!");
       return;
     }
-    if (!/^[a-zA-Z]+$/.test(newFirstname)) {
+    if (!/^[a-zA-Z\s-]+$/.test(newFirstname)) {
       setFullnameMsgSuccess(false);
-      setFullnameMsg("First name can only contain letters!");
+      setFullnameMsg(
+        "First name can only contain letters!",
+      );
       return;
     }
-    if (!/^[a-zA-Z]+$/.test(newLastname)) {
+    if (!/^[a-zA-Z\s-]+$/.test(newLastname)) {
       setFullnameMsgSuccess(false);
       setFullnameMsg("Last name can only contain letters!");
       return;
@@ -285,14 +287,17 @@ function AccountSettings() {
   const deleteAccount = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("https://quicknotesbackend-e5oz.onrender.com/users/delete", {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+      const response = await fetch(
+        "https://quicknotesbackend-e5oz.onrender.com/users/delete",
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ id }),
         },
-        body: JSON.stringify({ id }),
-      });
+      );
       const data = await response.json();
       if (data.success) {
         localStorage.removeItem("token");
