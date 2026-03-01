@@ -67,7 +67,7 @@ function AccountSettings() {
     try {
       const token = localStorage.getItem("token");
       let response = await fetch(
-        `https://quicknotesbackend-wgu7.onrender.com/users/retrieve/${userId}`,
+        `https://quicknotesbackend-e5oz.onrender.com/users/retrieve/${userId}`,
         {
           method: "GET",
           headers: {
@@ -134,7 +134,7 @@ function AccountSettings() {
     try {
       const token = localStorage.getItem("token");
       let response = await fetch(
-        "https://quicknotesbackend-wgu7.onrender.com/users/update/username",
+        "https://quicknotesbackend-e5oz.onrender.com/users/update/username",
         {
           method: "PUT",
           headers: {
@@ -191,7 +191,7 @@ function AccountSettings() {
     try {
       const token = localStorage.getItem("token");
       let response = await fetch(
-        "https://quicknotesbackend-wgu7.onrender.com/users/update/fullname",
+        "https://quicknotesbackend-e5oz.onrender.com/users/update/fullname",
         {
           method: "PUT",
           headers: {
@@ -248,7 +248,7 @@ function AccountSettings() {
     try {
       const token = localStorage.getItem("token");
       let response = await fetch(
-        "https://quicknotesbackend-wgu7.onrender.com/users/update/password",
+        "https://quicknotesbackend-e5oz.onrender.com/users/update/password",
         {
           method: "PUT",
           headers: {
@@ -285,7 +285,7 @@ function AccountSettings() {
   const deleteAccount = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("https://quicknotesbackend-wgu7.onrender.com/users/delete", {
+      const response = await fetch("https://quicknotesbackend-e5oz.onrender.com/users/delete", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

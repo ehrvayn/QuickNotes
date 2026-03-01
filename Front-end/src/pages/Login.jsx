@@ -40,7 +40,7 @@ function Login() {
     if (!password) { setIsSuccess(false); setMessage("Password is required!"); return; }
 
     try {
-      let response = await fetch("https://quicknotesbackend-wgu7.onrender.com/users/login", {
+      let response = await fetch("https://quicknotesbackend-e5oz.onrender.com/users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),

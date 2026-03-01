@@ -28,7 +28,7 @@ function Message() {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("https://quicknotesbackend-wgu7.onrender.com/messages/send", {
+      const response = await fetch("https://quicknotesbackend-e5oz.onrender.com/messages/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

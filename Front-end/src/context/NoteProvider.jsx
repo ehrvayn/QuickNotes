@@ -30,7 +30,7 @@ function NotesProvider({ children }) {
     try {
       const decoded = jwtDecode(token);
       const response = await fetch(
-        `https://quicknotesbackend-wgu7.onrender.com/notes/getNotes/${decoded.id}`,
+        `https://quicknotesbackend-e5oz.onrender.com/notes/getNotes/${decoded.id}`,
         {
           method: "GET",
           headers: {
@@ -57,7 +57,7 @@ function NotesProvider({ children }) {
     if (token) {
       try {
         const decoded = jwtDecode(token);
-        const response = await fetch("https://quicknotesbackend-wgu7.onrender.com/notes/addNote", {
+        const response = await fetch("https://quicknotesbackend-e5oz.onrender.com/notes/addNote", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -84,7 +84,7 @@ function NotesProvider({ children }) {
   const updateNote = async (id, title, body) => {
     if (token) {
       try {
-        const response = await fetch("https://quicknotesbackend-wgu7.onrender.com/notes/updateNote", {
+        const response = await fetch("https://quicknotesbackend-e5oz.onrender.com/notes/updateNote", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -113,7 +113,7 @@ function NotesProvider({ children }) {
     if (token) {
       try {
         const response = await fetch(
-          `https://quicknotesbackend-wgu7.onrender.com/notes/addToFavorite/${noteId}`,
+          `https://quicknotesbackend-e5oz.onrender.com/notes/addToFavorite/${noteId}`,
           {
             method: "POST",
             headers: {
@@ -145,7 +145,7 @@ function NotesProvider({ children }) {
     if (token) {
       try {
         const response = await fetch(
-          `https://quicknotesbackend-wgu7.onrender.com/notes/deleteNote/${noteId}`,
+          `https://quicknotesbackend-e5oz.onrender.com/notes/deleteNote/${noteId}`,
           {
             method: "POST",
             headers: {
@@ -173,7 +173,7 @@ function NotesProvider({ children }) {
       const decoded = jwtDecode(token);
       try {
         const response = await fetch(
-          `https://quicknotesbackend-wgu7.onrender.com/notes/deleteAllNotes/${decoded.id}`,
+          `https://quicknotesbackend-e5oz.onrender.com/notes/deleteAllNotes/${decoded.id}`,
           {
             method: "POST",
             headers: {

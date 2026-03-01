@@ -21,7 +21,7 @@ function Register() {
       return;
     }
     try {
-      let response = await fetch("https://quicknotesbackend-wgu7.onrender.com/users/register", {
+      let response = await fetch("https://quicknotesbackend-e5oz.onrender.com/users/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password, firstname, lastname }),
