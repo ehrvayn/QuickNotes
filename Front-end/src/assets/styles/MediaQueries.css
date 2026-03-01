@@ -1,0 +1,311 @@
+@media (max-width: 905px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .app-layout .sidebar {
+    display: none;
+  }
+
+  .offcanvas {
+    height: 100dvh !important;
+  }
+
+  .offcanvas-body {
+    padding: 0;
+    overflow: hidden !important;
+    height: 100%;
+  }
+
+  .offcanvas-body .sidebar {
+    display: flex !important;
+    overflow: hidden !important;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding: 15px 10px;
+  }
+
+  .offcanvas-body .sidebar-nav {
+    overflow: hidden !important;
+  }
+
+  .offcanvas-body .sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hamburger-container {
+    display: block;
+  }
+
+  .hamburger {
+    font-weight: bold;
+    font-size: clamp(20px, 5vw, 50px);
+    cursor: pointer;
+  }
+
+  .hamburger:active {
+    transform: scale(0.95);
+  }
+
+  .hamburger:hover {
+    transform: scale(1.1);
+  }
+
+  .sign-in-container {
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .brand-side {
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 10px 20px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-content {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0 !important;
+    width: 100%;
+  }
+
+  .brand-logo {
+    width: 100% !important;
+    max-width: 150px !important;
+    margin-bottom: 0 !important;
+    margin-right: 5px;
+  }
+
+  .brand-content h1.title {
+    font-size: clamp(2.2rem, 9vw, 3.2rem) !important;
+    margin-bottom: 0 !important;
+    white-space: nowrap;
+    border-right: 3px solid #67e767;
+    padding-right: 10px;
+  }
+
+  .brand-content p {
+    display: none;
+  }
+
+  .sign-in-wrapper {
+    flex: 1;
+    padding: 20px;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  .form-box {
+    width: 100%;
+    max-width: 400px;
+    padding-bottom: 20px;
+  }
+
+  .back-arrow {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .help-container {
+    padding: 3%;
+    gap: 15px;
+  }
+
+  .help-header h1 {
+    font-size: clamp(20px, 6vw, 30px);
+  }
+
+  .help-header p {
+    font-size: clamp(12px, 3.5vw, 16px);
+  }
+
+  .help-section h2 {
+    font-size: clamp(18px, 5vw, 24px);
+  }
+
+  .help-section h5 {
+    font-size: clamp(14px, 4vw, 18px);
+  }
+
+  .help-section p,
+  .help-list li {
+    font-size: clamp(12px, 3.5vw, 14px);
+  }
+
+  .logo {
+    min-width: 60px;
+    max-width: 100px;
+  }
+
+  .help-list {
+    padding-left: 20px;
+  }
+
+  .how-to-item {
+    margin-bottom: 15px;
+  }
+
+  .account-settings-wrapper {
+    padding: 3%;
+  }
+
+  .account-settings-title {
+    font-size: clamp(16px, 5vw, 24px);
+    margin-bottom: 20px;
+  }
+
+  .account-settings-field {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 0;
+  }
+
+  .field-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .note-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 20px;
+    width: 100%;
+  }
+
+  .note-card {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.555);
+    transition: transform 0.2s;
+  }
+
+  .card-body {
+    overflow-y: auto;
+    text-align: justify;
+    font-size: smaller;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+  }
+
+  .card-title {
+    font-size: small;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: smaller;
+  }
+
+  .star2 {
+    color: gold;
+    font-size: large;
+  }
+
+  .star1 {
+    color: #1e1e1e;
+    font-size: large;
+  }
+
+  .note-tools {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .tools-container {
+    min-height: 60px;
+    position: relative;
+  }
+
+  .help-header h1 {
+    font-size: clamp(16px, 5vw, 24px);
+  }
+
+  .logo {
+    min-width: 50px;
+    max-width: 80px;
+  }
+
+  .help-section {
+    gap: 10px;
+  }
+
+  .search-container {
+    z-index: 10;
+    width: 100%;
+    position: relative;
+  }
+
+  .form-control {
+    position: relative;
+  }
+
+  .form-control:focus {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    z-index: 20;
+  }
+
+  .search-container:focus-within ~ .tools-btn-container {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .account-settings-field div[style] {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .input-field {
+    width: 100%;
+  }
+
+  .field-info {
+    width: 100%;
+  }
+
+  .name-inputs {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .brand-content h1.title {
+    font-size: 1.8rem !important;
+  }
+
+  .brand-content p {
+    font-size: 0.75rem;
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 315px) {
+  .note-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 20px;
+    width: 100%;
+  }
+}

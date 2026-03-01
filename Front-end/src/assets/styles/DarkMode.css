@@ -1,0 +1,75 @@
+.dark-mode .main-content {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.dark-mode .title {
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+.dark-mode .title-half {
+  color: white;
+}
+
+.dark-mode .form-control {
+  background-color: #1e1e1e;
+  color: white;
+  border-color: #444;
+}
+
+.dark-mode .form-control::placeholder {
+  color: white;
+}
+
+.dark-mode .form-control:focus {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.dark-mode .note-container-parent .recent {
+  color: rgba(255, 255, 255, 0.363);
+}
+
+.dark-mode .help-container-parent .help-container,
+.message-container,
+.account-settings-wrapper {
+  box-shadow: 0 0px 5px rgba(255, 255, 255, 0.39);
+}
+
+.dm-view-note .modal-content {
+  background-color: #2e2e2e;
+  color: white;
+}
+
+.dm-view-note .view-title,
+.dm-view-note .view-body {
+  background-color: transparent;
+  color: white;
+}
+
+.dark-mode .scroll-to-top {
+  background-color: rgb(253, 253, 253);
+  color: black;
+}
+
+.dark-mode .empty-container-parent .empty-container {
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.39);
+}
+
+.dark-mode .help-container-parent .message-container .message-area {
+  background-color: #3e3e3e;
+}
+
+.dark-mode .account-settings-field {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .field-btn {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.dark-mode .field-btn:hover {
+  background-color: #67e767;
+  border-color: #67e767;
+  color: #1e1e1e;
+}
