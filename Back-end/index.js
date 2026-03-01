@@ -21,6 +21,8 @@ app.get("/", (req, res) => {
   res.send("Damnson");
 });
 
-app.listen(3000, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+const ACTUAL_PORT = process.env.PORT || 3000;
+
+app.listen(ACTUAL_PORT, "0.0.0.0", () => {
+  console.log(`Server is running on port ${ACTUAL_PORT}`);
 });
