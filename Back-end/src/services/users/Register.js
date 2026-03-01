@@ -15,8 +15,8 @@ module.exports = async (username, password, firstname, lastname) => {
 
   if (!firstname || firstname.trim() === "") {
     errors.push("First name is required");
-  } else if (!/^[a-zA-Z]+$/.test(firstname)) {
-    errors.push("First name can only contain letters");
+  } else if (!/^[a-zA-Z\s-]+$/.test(firstname)) {
+    errors.push("First name can only contain letters, spaces, or hyphens");
   }
 
   if (!lastname || lastname.trim() === "") {
@@ -44,7 +44,7 @@ module.exports = async (username, password, firstname, lastname) => {
     }
 
     const inputPasswordHash = await bcrypt.hash(password, 10);
-    const { query: query1, values: values1 } = usersQuery.create(username, inputPasswordHash, firstname, lastname);
+    const { query: query1, values: values1 } = usersQuery.create(username, inputPasswordHash, firstname.trim(), lastname);
     await Connection(query1, values1);
 
     return { success: true, message: "You have successfully registered!" };
