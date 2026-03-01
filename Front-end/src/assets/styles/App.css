@@ -80,32 +80,27 @@
   overflow-y: auto;
 }
 
-.title {
-  font-size: clamp(18px, 5vw, 50px);
+.title-container h1.title {
+  font-size: clamp(18px, 4vw, 50px); 
+  
+  width: fit-content; 
+  max-width: 100%;
+  margin: 0 auto;
   font-weight: bold;
-  margin-bottom: 0;
   white-space: nowrap;
   overflow: hidden;
   font-family: monospace;
   border-right: 4px solid #67e767;
   color: #67e767;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  text-align: center;
   animation:
     typing 3s steps(25, end) infinite,
     blink 0.8s step-end infinite;
 }
 
 @keyframes typing {
-  0% {
-    width: 0;
-  }
-  50% {
-    width: 100%;
-  }
-  80% {
-    width: 100%;
-  }
+  0% { width: 0; }
+  50% { width: 100%; } 
+  80% { width: 100%; }
 }
 
 @keyframes blink {
