@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import LoginContext from "../context/LoginContext";
 
 function Register() {
@@ -42,6 +42,20 @@ function Register() {
       setMessage("Something went wrong. Please try again.");
     }
   };
+
+  useEffect(() => {
+    const handleGlobalKeyDown = (e) => {
+      if (e.key === "Enter") {
+        register();
+      }
+    };
+
+    window.addEventListener("keydown", handleGlobalKeyDown);
+    
+    return () => {
+      window.removeEventListener("keydown", handleGlobalKeyDown);
+    };
+  }, [firstname, lastname, username, password, confirmPassword]); 
 
   return (
     <>

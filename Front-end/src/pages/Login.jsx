@@ -35,6 +35,13 @@ function Login() {
     }
   }, [isRegistering]);
 
+  // Handle Enter key for non-form elements
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !isRegistering) {
+      login();
+    }
+  };
+
   const login = async () => {
     if (!username) { setIsSuccess(false); setMessage("Username is required!"); return; }
     if (!password) { setIsSuccess(false); setMessage("Password is required!"); return; }
@@ -78,7 +85,7 @@ function Login() {
         </div>
       </div>
 
-      <div className="sign-in-wrapper">
+      <div className="sign-in-wrapper" onKeyDown={handleKeyDown}>
         <div className="form-box">
           <div className="form-header">
             <h2>{isRegistering ? "Create Account" : "Sign In"}</h2>
@@ -87,21 +94,36 @@ function Login() {
           <div className="input-wrapper">
             {isRegistering && (
               <div className="name-inputs">
-                <input placeholder="Firstname" type="text" value={firstname}
-                  onChange={(e) => setFirstname(e.target.value)} />
-                <input placeholder="Lastname" type="text" value={lastname}
-                  onChange={(e) => setLastname(e.target.value)} />
+                <input 
+                  placeholder="Firstname" 
+                  type="text" 
+                  value={firstname}
+                  onChange={(e) => setFirstname(e.target.value)} 
+                />
+                <input 
+                  placeholder="Lastname" 
+                  type="text" 
+                  value={lastname}
+                  onChange={(e) => setLastname(e.target.value)} 
+                />
               </div>
             )}
 
-            <input className="full-input" placeholder="Username" type="text" value={username}
-              onChange={(e) => { setUsername(e.target.value); setMessage(null); }} />
+            <input 
+              className="full-input" 
+              placeholder="Username" 
+              type="text" 
+              value={username}
+              onChange={(e) => { setUsername(e.target.value); setMessage(null); }} 
+            />
 
             <div className="password-field-container">
-              <input className="full-input" placeholder="Password"
-                type={showPassword ? "text" : "password"} value={password}
+              <input 
+                className="full-input" 
+                placeholder="Password"
+                type={showPassword ? "text" : "password"} 
+                value={password}
                 onChange={(e) => { setPassword(e.target.value); setMessage(null); }}
-                onKeyDown={(e) => e.key === "Enter" && !isRegistering && loginBtnRef.current.click()}
               />
               <span className="toggle-text" onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? "HIDE" : "SHOW"}
@@ -110,14 +132,17 @@ function Login() {
 
             {isRegistering && (
               <div className="password-field-container">
-                <input className="full-input" placeholder="Confirm password"
-                  type={showPassword ? "text" : "password"} value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)} />
+                <input 
+                  className="full-input" 
+                  placeholder="Confirm password"
+                  type={showPassword ? "text" : "password"} 
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)} 
+                />
               </div>
             )}
           </div>
 
-          {/* Inline message */}
           {!isRegistering && message && (
             <p className={`inline-message ${isSuccess ? "inline-success" : "inline-error"}`}>
               {message}
@@ -132,7 +157,9 @@ function Login() {
                 </button>
                 <p className="switch-text">
                   New here?{" "}
-                  <span onClick={() => { setIsRegistering(true); setMessage(null); }}>Register</span>
+                  <span onClick={() => { setIsRegistering(true); setMessage(null); }}>
+                    Register
+                  </span>
                 </p>
               </>
             ) : (
