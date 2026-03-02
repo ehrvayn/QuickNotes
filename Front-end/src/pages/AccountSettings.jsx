@@ -178,9 +178,7 @@ function AccountSettings() {
     }
     if (!/^[a-zA-Z\s-]+$/.test(newFirstname)) {
       setFullnameMsgSuccess(false);
-      setFullnameMsg(
-        "First name can only contain letters!",
-      );
+      setFullnameMsg("First name can only contain letters!");
       return;
     }
     if (!/^[a-zA-Z\s-]+$/.test(newLastname)) {

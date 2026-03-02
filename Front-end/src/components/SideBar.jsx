@@ -78,7 +78,7 @@ function SideBar({ activeView, setActiveView, onClose }) {
           {token ? <Logout /> : <Login />}
           {!token && <div className="guest-mode-indicator">Guest Mode</div>}
         </nav>
-        <div className="sidebar-footer">v2.0</div>
+        <div className="sidebar-footer">© 2026 Ehrvayn Rayven Olivera. All rights reserved.</div>
       </div>
     </>
   );

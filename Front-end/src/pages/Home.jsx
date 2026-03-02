@@ -126,6 +126,7 @@ function Home() {
         <EditNoteModal />
       </div>
       <ScrollToTop />
+      
     </div>
   );
 }

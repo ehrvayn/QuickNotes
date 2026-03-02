@@ -4,6 +4,17 @@
   width: 100%;
 }
 
+.footer {
+  text-align: center;
+  padding: 24px 0;
+  margin-top: auto;
+  border-top: 1px solid #eaeaea; /* The line on top */
+  color: #666666;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
 .app-layout {
   display: grid;
   grid-template-columns: 240px 1fr;
@@ -24,6 +35,8 @@
 
 .sidebar-footer {
   color: white;
+  font-size: small;
+  text-align: center;
 }
 
 .sidebar-nav button {
@@ -82,7 +95,6 @@
 
 .title-container h1.title {
   font-size: clamp(18px, 4vw, 50px); 
-  
   width: fit-content; 
   max-width: 100%;
   margin: 0 auto;
