@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import NotesContext from "./NotesContext";
 import { jwtDecode } from "jwt-decode";
 
@@ -20,7 +20,7 @@ function NotesProvider({ children }) {
       localStorage.setItem("token", newToken);
     } else {
       localStorage.removeItem("token");
-      setNotes(null)
+      setNotes(null);
     }
     setToken(newToken);
   };
@@ -57,18 +57,21 @@ function NotesProvider({ children }) {
     if (token) {
       try {
         const decoded = jwtDecode(token);
-        const response = await fetch("https://quicknotesbackend-e5oz.onrender.com/notes/addNote", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+        const response = await fetch(
+          "https://quicknotesbackend-e5oz.onrender.com/notes/addNote",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+              title: noteObject.title,
+              body: noteObject.body,
+              userId: decoded.id,
+            }),
           },
-          body: JSON.stringify({
-            title: noteObject.title,
-            body: noteObject.body,
-            userId: decoded.id,
-          }),
-        });
+        );
         const data = await response.json();
         if (data.success) {
           setNotes((prev) => [...prev, data.note]);
@@ -84,14 +87,17 @@ function NotesProvider({ children }) {
   const updateNote = async (id, title, body) => {
     if (token) {
       try {
-        const response = await fetch("https://quicknotesbackend-e5oz.onrender.com/notes/updateNote", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+        const response = await fetch(
+          "https://quicknotesbackend-e5oz.onrender.com/notes/updateNote",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ id, title, body }),
           },
-          body: JSON.stringify({ id, title, body }),
-        });
+        );
 
         const data = await response.json();
         if (data.success) {
@@ -196,9 +202,10 @@ function NotesProvider({ children }) {
     }
   };
 
-  const favoriteNotes = notes
-    ? notes.filter((note) => note && note.favorite === true)
-    : [];
+  const favoriteNotes = useMemo(() => {
+    return notes ? notes.filter((note) => note?.favorite) : [];
+  }, [notes]);
+
   const handleNewest = () => setOrder("Newest");
   const handleOldest = () => setOrder("Oldest");
 
