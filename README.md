@@ -19,16 +19,10 @@ A fast and secure note management application built with a modern full-stack arc
 
 ### Backend
 - Node.js + Express
-- TypeScript
-- PostgreSQL
+- JavaScript
+- MySQL
 - JWT Authentication
 
-## Getting Started
-
-### Prerequisites
-- Node.js (v16+)
-- PostgreSQL
-- npm or yarn
 
 ### Installation
 
